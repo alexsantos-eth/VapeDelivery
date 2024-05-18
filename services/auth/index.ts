@@ -57,7 +57,7 @@ export const saveUID = async ({uid}: SaveUIDProps) => {
  */
 export const getUID = async () => {
   try {
-    const uid = await EncryptedStorage.getItem('uidr');
+    const uid = await EncryptedStorage.getItem('uid');
     return uid;
   } catch (error) {
     console.log(error);

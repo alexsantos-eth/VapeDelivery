@@ -1,11 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 
-import {getUnit} from '@/utils';
+import {THEME} from '@/providers/theme/utils';
 
 import Stack from '../Stack';
 import Text from '../Text';
-import {THEME} from '@/providers/theme/utils';
 
 interface HeadingProps {
   title: string;
@@ -28,7 +27,7 @@ const Heading: React.FC<HeadingProps> = ({
         borderBottomWidth: divider ? 1 : 0,
         borderBottomColor: THEME.COLORS?.MUTED,
       }}>
-      <Text size={getUnit(3)} bold>
+      <Text size={3} bold>
         {title}
       </Text>
 

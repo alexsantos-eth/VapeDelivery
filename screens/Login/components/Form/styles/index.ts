@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     width: 800,
     height: 800,
     right: -350,
-    top: -185,
+    top: -150,
   },
 
   scroll: {

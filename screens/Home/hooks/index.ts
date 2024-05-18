@@ -1,9 +1,10 @@
 import {useEffect, useState} from 'react';
 
 import database from '@react-native-firebase/database';
-import {useNavigation} from '@react-navigation/native';
+import {CommonActions, useNavigation} from '@react-navigation/native';
 
 import {RealtimeCartData} from '../../../models/Cart';
+import {getAcceptedOrder} from '@/services/cart';
 
 /**
  * The `useActiveCarts` function in TypeScript manages active carts data by fetching and updating it
@@ -42,6 +43,28 @@ const useActiveCarts = () => {
   }, [navigation]);
 
   return {activeCarts, setActiveCarts, onRefresh, loading} as const;
+};
+
+export const useActiveOrder = () => {
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    const requestOrder = async () => {
+      const orderUid = await getAcceptedOrder();
+      if (!orderUid) {
+        return;
+      }
+
+      navigation.dispatch(
+        CommonActions.navigate({
+          name: 'Order',
+          params: {uid: orderUid},
+        }),
+      );
+    };
+
+    requestOrder();
+  }, [navigation]);
 };
 
 export default useActiveCarts;

@@ -1,4 +1,4 @@
-import {getUnit} from '@/utils';
+import {getUnit} from '@/components/UI/utils';
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({

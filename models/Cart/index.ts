@@ -16,6 +16,9 @@ export interface RealtimeCartData {
     telefono: string;
     foto: string[];
   };
+  total: number;
+  subtotal: number;
+  envio: number;
   status: string;
   estado: [
     {terminado: boolean; hora: String; etapa: 'Orden Recibida'},

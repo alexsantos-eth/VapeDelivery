@@ -1,6 +1,10 @@
-import firestore from '@react-native-firebase/firestore';
-import {Cart, RealtimeCartData} from '../../models/Cart';
+import EncryptedStorage from 'react-native-encrypted-storage';
+
+import {User} from '@/models/User';
 import database from '@react-native-firebase/database';
+import firestore from '@react-native-firebase/firestore';
+
+import {Cart, RealtimeCartData} from '../../models/Cart';
 
 interface GetCartId {
   uid: string;
@@ -51,6 +55,46 @@ export const getRealtimeCart = async ({uid}: Omit<GetCartId, 'cartId'>) => {
     const data = val.val() as RealtimeCartData;
 
     return {...data, uid};
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+interface SaveAcceptedOrderProps {
+  order: RealtimeCartData;
+  driver: User | null;
+}
+export const acceptOrder = async ({order, driver}: SaveAcceptedOrderProps) => {
+  const ref = database().ref(`/cart/${order.uid}`);
+
+  if (!driver) {
+    return;
+  }
+
+  if (!order.uid) {
+    return;
+  }
+
+  // SAVE ON STORAGE
+  await EncryptedStorage.setItem('order-id', order.uid);
+
+  await ref.update({
+    activo: true,
+    motorista: {
+      nombre: driver?.displayName,
+      telefono: driver?.phoneNumber,
+      foto: [
+        driver?.picture ||
+          'https://firebasestorage.googleapis.com/v0/b/vape-escape-gt.appspot.com/o/public%2F1024.png?alt=media&token=d632d31a-1955-49ea-945f-f868044cde3d',
+      ],
+    },
+  });
+};
+
+export const getAcceptedOrder = async () => {
+  try {
+    const orderId = await EncryptedStorage.getItem('order-id');
+    return orderId;
   } catch (error) {
     console.log(error);
   }

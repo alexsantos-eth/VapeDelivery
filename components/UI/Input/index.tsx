@@ -2,7 +2,7 @@ import {Input as Inp, InputProps} from 'galio-framework';
 import React from 'react';
 
 import {THEME} from '@/providers/theme/utils';
-import {getUnit} from '@/utils';
+import {getUnit} from '@/components/UI/utils';
 import styles from './styles';
 
 interface InpProps extends InputProps {}

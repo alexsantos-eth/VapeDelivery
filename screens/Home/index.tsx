@@ -5,12 +5,13 @@ import Heading from '@/components/UI/Heading';
 import Layout from '@/layout';
 
 import Carts from './components/Carts';
-import useActiveCarts from './hooks';
+import useActiveCarts, {useActiveOrder} from './hooks';
 import Empty from './components/Empty';
 
 interface HomeScreenProps {}
 const HomeScreen: React.FC<HomeScreenProps> = () => {
   const {activeCarts, onRefresh, loading} = useActiveCarts();
+  useActiveOrder();
 
   return (
     <Layout>
@@ -19,7 +20,6 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
           <RefreshControl refreshing={loading} onRefresh={onRefresh} />
         }>
         <Heading
-          divider
           margin
           title="Pedidos activos"
           description="Aquí puedes ver los pedidos de hoy."

@@ -1,16 +1,20 @@
-import {Block} from 'galio-framework';
 import React from 'react';
 import {Image, View} from 'react-native';
 
+import Stack from '@/components/UI/Stack';
 import Text from '@/components/UI/Text';
 
 import style from './styles';
-import {getUnit} from '@/utils';
 
 interface NavbarProps {}
 const Navbar: React.FC<NavbarProps> = () => {
   return (
-    <View style={style.container}>
+    <Stack
+      py={2}
+      px={4}
+      direction="row"
+      alignItems="center"
+      justifyContent="flex-start">
       <View style={style.imageContainer}>
         <Image
           source={require('@/assets/img/logo_b.png')}
@@ -19,19 +23,19 @@ const Navbar: React.FC<NavbarProps> = () => {
         />
       </View>
 
-      <Block row>
-        <Text color="white" size={getUnit(2)} bold>
+      <Stack gap={0} direction="row">
+        <Text color="white" size={2} bold>
           Vape
         </Text>
-        <Text color="white" size={getUnit(2)} bold>
+        <Text color="white" size={2} bold>
           Escape
         </Text>
 
-        <Text color="white" size={getUnit(2)}>
+        <Text color="white" size={2}>
           {' | Drivers'}
         </Text>
-      </Block>
-    </View>
+      </Stack>
+    </Stack>
   );
 };
 

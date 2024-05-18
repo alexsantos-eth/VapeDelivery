@@ -35,9 +35,8 @@ const Form: React.FC<FormProps> = () => {
           />
         </Block>
 
-        <Stack>
+        <Stack fullWidth>
           <Input
-            left
             family="Ionicon"
             icon="at-outline"
             onChangeText={setUsername}
@@ -47,7 +46,6 @@ const Form: React.FC<FormProps> = () => {
           <Button
             color="black"
             icon="log-in"
-            iconSize={30}
             iconColor="#fff"
             iconFamily="ionicon"
             onPress={signingEvent}

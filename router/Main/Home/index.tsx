@@ -15,7 +15,11 @@ const HomeNavigator: React.FC<HomeStackProps> = () => {
         headerShown: false,
       }}>
       <HomeStack.Screen name="Home" component={HomeScreen} />
-      <HomeStack.Screen name="Order" component={OrderScreen} />
+      <HomeStack.Screen
+        name="Order"
+        component={OrderScreen}
+        options={{gestureEnabled: false}}
+      />
     </HomeStack.Navigator>
   );
 };

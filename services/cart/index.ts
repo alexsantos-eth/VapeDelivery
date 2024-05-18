@@ -41,13 +41,17 @@ export const getCart = async ({uid, cartId}: GetCartId) => {
  * `/cart/` location in the database along with the `uid` property.
  */
 export const getRealtimeCart = async ({uid}: Omit<GetCartId, 'cartId'>) => {
-  if (!uid) {
-    return;
+  try {
+    if (!uid) {
+      return;
+    }
+
+    const ref = database().ref(`/cart/${uid}`);
+    const val = await ref.once('value');
+    const data = val.val() as RealtimeCartData;
+
+    return {...data, uid};
+  } catch (error) {
+    console.log(error);
   }
-
-  const ref = database().ref(`/cart/${uid}`);
-  const val = await ref.once('value');
-  const data = val.val() as RealtimeCartData;
-
-  return {...data, uid};
 };

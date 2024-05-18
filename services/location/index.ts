@@ -13,14 +13,18 @@ interface SendLocationProps {
   uid?: string;
 }
 export const sendLocation = ({position, uid}: SendLocationProps) => {
-  if (!uid) {
-    return;
+  try {
+    if (!uid) {
+      return;
+    }
+
+    const reference = database().ref(`/cart/${uid}/ubicacion_motorista`);
+
+    reference.update({
+      latitud: position.coords.latitude,
+      longitud: position.coords.longitude,
+    });
+  } catch (error) {
+    console.log(error);
   }
-
-  const reference = database().ref(`/cart/${uid}/ubicacion_motorista`);
-
-  reference.update({
-    latitud: position.coords.latitude,
-    longitud: position.coords.longitude,
-  });
 };

@@ -1,39 +1,64 @@
 import React from 'react';
-import {useTheme} from 'tamagui';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Home, User} from '@tamagui/lucide-icons';
 
 import HomeScreen from '../../screens/Home';
 import HomeNavigator from './Home';
+import {Icon} from 'galio-framework';
+import {THEME} from '@/providers/theme/utils';
 
 interface MainProps {}
 
-const HomeIcon = ({color}: {color: string}) => <Home color={color} />;
-const UserIcon = ({color}: {color: string}) => <User color={color} />;
-
 const Tab = createBottomTabNavigator();
-const Main: React.FC<MainProps> = () => {
-  const theme = useTheme();
 
+const PlanetIcon = ({focused}: {focused: boolean}) => {
+  return (
+    <Icon
+      name="home-outline"
+      family="Ionicon"
+      size={24}
+      color={focused ? THEME.COLORS?.PRIMARY : 'gray'}
+    />
+  );
+};
+
+const UserIcon = ({focused}: {focused: boolean}) => {
+  return (
+    <Icon
+      name="person-outline"
+      family="Ionicon"
+      size={24}
+      color={focused ? THEME.COLORS?.PRIMARY : THEME.COLORS?.BLACK}
+    />
+  );
+};
+
+const Main: React.FC<MainProps> = () => {
   return (
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarShowLabel: false,
-        tabBarInactiveTintColor: 'gray',
-        tabBarActiveTintColor: theme.alienPurple.get(),
+        tabBarShowLabel: true,
+        tabBarInactiveTintColor: THEME.COLORS?.BLACK,
       }}>
       <Tab.Screen
         name="HomeStack"
         component={HomeNavigator}
-        options={{tabBarIcon: HomeIcon}}
+        options={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarIcon: PlanetIcon,
+        }}
       />
 
       <Tab.Screen
         name="ProfileStack"
         component={HomeScreen}
-        options={{tabBarIcon: UserIcon}}
+        options={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarIcon: UserIcon,
+        }}
       />
     </Tab.Navigator>
   );

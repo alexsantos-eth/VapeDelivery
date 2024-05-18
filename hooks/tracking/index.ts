@@ -4,7 +4,7 @@ import _BackgroundTimer from 'react-native-background-timer';
 
 import Geolocation from '@react-native-community/geolocation';
 
-import {sendLocation} from '../utils/location';
+import {sendLocation} from '../../services/location';
 
 /**
  * The `useBgTracking` function in TypeScript sets up background tracking for geolocation updates based

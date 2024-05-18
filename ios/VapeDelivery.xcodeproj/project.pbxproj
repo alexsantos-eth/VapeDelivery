@@ -9,12 +9,18 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* VapeDeliveryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* VapeDeliveryTests.m */; };
 		01110C1EE3BDA1BFC286B741 /* Pods_VapeDelivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE2433DD3D4ECAB92DE297E /* Pods_VapeDelivery.framework */; };
+		0C5019A838A649B7AEAC1995 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F2DB50F3ED64C229CE38BDA /* Montserrat-Regular.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		165DE3BD3B6546C49B92FACF /* MonumentExtended.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC0D0C5B431D4B5E8E504C00 /* MonumentExtended.ttf */; };
+		38E27F46066245059A7E475D /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84151602A8914FEABE02D63E /* Montserrat-Bold.ttf */; };
+		50717FCD67D048B1AB8FA380 /* ABCMonumentGrotesk-Bold-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50650B41A02D437E8998A03F /* ABCMonumentGrotesk-Bold-Trial.otf */; };
 		758AF29550CA2A398141A168 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B79D49CE7D3AABC22EBAC520 /* PrivacyInfo.xcprivacy */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		91D652D8357237A4EC36EC65 /* Pods_VapeDelivery_VapeDeliveryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEA42CA29D06B5F812FFA15B /* Pods_VapeDelivery_VapeDeliveryTests.framework */; };
+		98F7D544F86B499F965AB194 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 081CB2AF1E55458494EF3ED1 /* Ionicons.ttf */; };
+		DC2B1CE49DED4BCCB918D483 /* ABCMonumentGrotesk-Regular-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC16FB20457244C7953C99C5 /* ABCMonumentGrotesk-Regular-Trial.otf */; };
 		FA3EC1ED2BEE3980005E4AA4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3EC1EC2BEE397F005E4AA4 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +38,7 @@
 		00E356EE1AD99517003FC87E /* VapeDeliveryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VapeDeliveryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* VapeDeliveryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VapeDeliveryTests.m; sourceTree = "<group>"; };
+		081CB2AF1E55458494EF3ED1 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = ../assets/fonts/Ionicons.ttf; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* VapeDelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VapeDelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = VapeDelivery/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = VapeDelivery/AppDelegate.mm; sourceTree = "<group>"; };
@@ -39,16 +46,22 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = VapeDelivery/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = VapeDelivery/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = VapeDelivery/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		2F2DB50F3ED64C229CE38BDA /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Regular.ttf"; path = "../assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-VapeDelivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VapeDelivery.debug.xcconfig"; path = "Target Support Files/Pods-VapeDelivery/Pods-VapeDelivery.debug.xcconfig"; sourceTree = "<group>"; };
+		50650B41A02D437E8998A03F /* ABCMonumentGrotesk-Bold-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ABCMonumentGrotesk-Bold-Trial.otf"; path = "../assets/fonts/ABCMonumentGrotesk-Bold-Trial.otf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-VapeDelivery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VapeDelivery.release.xcconfig"; path = "Target Support Files/Pods-VapeDelivery/Pods-VapeDelivery.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-VapeDelivery-VapeDeliveryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VapeDelivery-VapeDeliveryTests.debug.xcconfig"; path = "Target Support Files/Pods-VapeDelivery-VapeDeliveryTests/Pods-VapeDelivery-VapeDeliveryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = VapeDelivery/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		84151602A8914FEABE02D63E /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Bold.ttf"; path = "../assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-VapeDelivery-VapeDeliveryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VapeDelivery-VapeDeliveryTests.release.xcconfig"; path = "Target Support Files/Pods-VapeDelivery-VapeDeliveryTests/Pods-VapeDelivery-VapeDeliveryTests.release.xcconfig"; sourceTree = "<group>"; };
 		8BE2433DD3D4ECAB92DE297E /* Pods_VapeDelivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VapeDelivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC0D0C5B431D4B5E8E504C00 /* MonumentExtended.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MonumentExtended.ttf; path = ../assets/fonts/MonumentExtended.ttf; sourceTree = "<group>"; };
 		B79D49CE7D3AABC22EBAC520 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = VapeDelivery/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		DC16FB20457244C7953C99C5 /* ABCMonumentGrotesk-Regular-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ABCMonumentGrotesk-Regular-Trial.otf"; path = "../assets/fonts/ABCMonumentGrotesk-Regular-Trial.otf"; sourceTree = "<group>"; };
 		DEA42CA29D06B5F812FFA15B /* Pods_VapeDelivery_VapeDeliveryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VapeDelivery_VapeDeliveryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FA3EC1EC2BEE397F005E4AA4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FAE86D402BF7291400E09610 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +101,19 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		03E94B9BAC4E40F1966F1D29 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				50650B41A02D437E8998A03F /* ABCMonumentGrotesk-Bold-Trial.otf */,
+				DC16FB20457244C7953C99C5 /* ABCMonumentGrotesk-Regular-Trial.otf */,
+				84151602A8914FEABE02D63E /* Montserrat-Bold.ttf */,
+				2F2DB50F3ED64C229CE38BDA /* Montserrat-Regular.ttf */,
+				AC0D0C5B431D4B5E8E504C00 /* MonumentExtended.ttf */,
+				081CB2AF1E55458494EF3ED1 /* Ionicons.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* VapeDelivery */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +149,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				FAE86D402BF7291400E09610 /* Ionicons.ttf */,
 				FA3EC1EC2BEE397F005E4AA4 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* VapeDelivery */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -130,6 +157,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				03E94B9BAC4E40F1966F1D29 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -254,6 +282,12 @@
 				FA3EC1ED2BEE3980005E4AA4 /* GoogleService-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				758AF29550CA2A398141A168 /* PrivacyInfo.xcprivacy in Resources */,
+				50717FCD67D048B1AB8FA380 /* ABCMonumentGrotesk-Bold-Trial.otf in Resources */,
+				DC2B1CE49DED4BCCB918D483 /* ABCMonumentGrotesk-Regular-Trial.otf in Resources */,
+				38E27F46066245059A7E475D /* Montserrat-Bold.ttf in Resources */,
+				0C5019A838A649B7AEAC1995 /* Montserrat-Regular.ttf in Resources */,
+				165DE3BD3B6546C49B92FACF /* MonumentExtended.ttf in Resources */,
+				98F7D544F86B499F965AB194 /* Ionicons.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,7 +655,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -704,7 +741,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

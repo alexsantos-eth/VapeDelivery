@@ -1,25 +1,40 @@
 import React from 'react';
-import {H2, Paragraph, ScrollView, View, YStack} from 'tamagui';
+import {RefreshControl, ScrollView, View} from 'react-native';
 
-import Layout from '../../layout';
+import Heading from '@/components/UI/Heading';
+import Layout from '@/layout';
+
 import Carts from './components/Carts';
+import useActiveCarts from './hooks';
+import Empty from './components/Empty';
 
 interface HomeScreenProps {}
 const HomeScreen: React.FC<HomeScreenProps> = () => {
+  const {activeCarts, onRefresh, loading} = useActiveCarts();
+
   return (
     <Layout>
-      <View flex={1} backgroundColor="$color13">
-        <ScrollView flex={1}>
-          <YStack marginBottom="$5">
-            <H2 theme="light">Pedidos activos</H2>
-            <Paragraph theme="light">
-              Aquí puedes aceptar los pedidos de hoy.
-            </Paragraph>
-          </YStack>
+      <ScrollView
+        refreshControl={
+          <RefreshControl refreshing={loading} onRefresh={onRefresh} />
+        }>
+        <Heading
+          divider
+          margin
+          title="Pedidos activos"
+          description="Aquí puedes ver los pedidos de hoy."
+        />
 
-          <Carts />
-        </ScrollView>
-      </View>
+        {!loading && (
+          <View>
+            {activeCarts.length === 0 ? (
+              <Empty />
+            ) : (
+              <Carts carts={activeCarts} />
+            )}
+          </View>
+        )}
+      </ScrollView>
     </Layout>
   );
 };

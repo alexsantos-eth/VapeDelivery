@@ -5,11 +5,18 @@ import {useNavigation} from '@react-navigation/native';
 
 import {RealtimeCartData} from '../../../models/Cart';
 
+/**
+ * The `useActiveCarts` function in TypeScript manages active carts data by fetching and updating it
+ * from a Realtime Database.
+ * @returns The `useActiveCarts` custom hook is returning an object with the following properties:
+ */
 const useActiveCarts = () => {
   const [activeCarts, setActiveCarts] = useState<RealtimeCartData[]>([]);
+  const [loading, setLoading] = useState(true);
   const navigation = useNavigation();
 
   const onRefresh = async () => {
+    setLoading(true);
     const ref = database().ref('cart');
     const snapshot = await ref.once('value');
 
@@ -26,6 +33,7 @@ const useActiveCarts = () => {
       })) as RealtimeCartData[];
 
     setActiveCarts(dbActiveCarts);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -33,7 +41,7 @@ const useActiveCarts = () => {
     return subscription;
   }, [navigation]);
 
-  return {activeCarts, setActiveCarts, onRefresh} as const;
+  return {activeCarts, setActiveCarts, onRefresh, loading} as const;
 };
 
 export default useActiveCarts;

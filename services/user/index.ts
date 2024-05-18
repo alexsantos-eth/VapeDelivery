@@ -18,7 +18,7 @@ interface GetUserProps {
  */
 export const getUser = async ({uid}: GetUserProps) => {
   try {
-    const user = await firestore().collection('users').doc(uid).get();
+    const user = await firestore().collection('drivers').doc(uid).get();
     return user.data() as User;
   } catch (error) {
     console.log('Error getting user', error);

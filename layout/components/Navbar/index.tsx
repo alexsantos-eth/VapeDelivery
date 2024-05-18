@@ -1,31 +1,37 @@
+import {Block} from 'galio-framework';
 import React from 'react';
-import {Image, Text, XStack} from 'tamagui';
+import {Image, View} from 'react-native';
+
+import Text from '@/components/UI/Text';
+
+import style from './styles';
+import {getUnit} from '@/utils';
 
 interface NavbarProps {}
 const Navbar: React.FC<NavbarProps> = () => {
   return (
-    <XStack
-      gap="$2"
-      height={60}
-      backgroundColor="$alienPurple"
-      paddingHorizontal="$5"
-      alignItems="center">
-      <Image
-        src={require('../../../assets/img/logo_b.png')}
-        height={25}
-        width={25}
-        resizeMode="contain"
-      />
+    <View style={style.container}>
+      <View style={style.imageContainer}>
+        <Image
+          source={require('@/assets/img/logo_b.png')}
+          resizeMode="contain"
+          style={style.image}
+        />
+      </View>
 
-      <XStack>
-        <Text fontSize="$7" fontFamily="$heading" fontWeight="normal">
+      <Block row>
+        <Text color="white" size={getUnit(2)} bold>
           Vape
         </Text>
-        <Text fontSize="$7" fontFamily="$heading" fontWeight="bold">
+        <Text color="white" size={getUnit(2)} bold>
           Escape
         </Text>
-      </XStack>
-    </XStack>
+
+        <Text color="white" size={getUnit(2)}>
+          {' | Drivers'}
+        </Text>
+      </Block>
+    </View>
   );
 };
 

@@ -1,34 +1,26 @@
+import {Button, Input, Text} from 'galio-framework';
 import React, {useState} from 'react';
 import {
-  Button,
-  H2,
-  H3,
-  H4,
   Image,
-  Input,
-  Paragraph,
-  Portal,
+  KeyboardAvoidingView,
+  Linking,
+  SafeAreaView,
   ScrollView,
-  XStack,
-  YStack,
-  useTheme,
-} from 'tamagui';
+  View,
+} from 'react-native';
 
-import {Map, Phone} from '@tamagui/lucide-icons';
-
-import Layout from '../../layout';
-import {openWaze, updateOrderStatus} from './events';
-import {useOrderFromParams, useUserCart} from './hooks';
-import useBgTracking from '../../hooks/bgtracking';
-import {KeyboardAvoidingView, Linking, SafeAreaView} from 'react-native';
+import useBgTracking from '@/hooks/tracking';
+import Layout from '@/layout';
 import {useNavigation} from '@react-navigation/native';
+
+import {openWaze, updateOrder} from './events';
+import {useOrderFromParams, useUserCart} from './hooks';
 
 interface OrderScreenProps {}
 const OrderScreen: React.FC<OrderScreenProps> = () => {
   // HOOKS
   const {orderRealtime, order} = useOrderFromParams();
   const [currentStep, setCurrentStep] = useState(0);
-  const theme = useTheme();
 
   const navigation = useNavigation();
 
@@ -38,112 +30,82 @@ const OrderScreen: React.FC<OrderScreenProps> = () => {
   // METHODS
   const openWazeHandler = () => openWaze({order: orderRealtime});
 
-  const updateOrderHandler = (status: number) => () => {
-    setCurrentStep(status);
-    updateOrderStatus({status, uid: orderRealtime?.uid});
-  };
+  const updateOrderHandler = (status: number) =>
+    updateOrder({setCurrentStep, status, orderRealtime});
 
   return (
-    <Portal flex={1} backgroundColor="white">
-      <SafeAreaView style={{backgroundColor: theme.alienPurple.get()}} />
+    <>
+      <SafeAreaView />
 
       <Layout>
         <KeyboardAvoidingView behavior="padding">
           <ScrollView>
-            <YStack gap="$5" marginBottom={200}>
-              <YStack>
-                <H2 theme="light">{orderRealtime?.direccion_entrega.nombre}</H2>
-                <Paragraph theme="light">{order?.address.name}</Paragraph>
-              </YStack>
+            <View>
+              <View>
+                <Text>{orderRealtime?.direccion_entrega.nombre}</Text>
+                <Text>{order?.address.name}</Text>
+              </View>
 
-              <XStack alignItems="center" gap="$4">
+              <View>
                 <Button
-                  icon={Phone}
                   onPress={() => Linking.openURL(`tel:${user?.phoneNumber}`)}
-                  backgroundColor="$alienPurple"
                 />
 
-                <YStack>
-                  <H3 theme="light">{user?.displayName}</H3>
-                  <Paragraph theme="light">{user?.phoneNumber}</Paragraph>
-                </YStack>
-              </XStack>
+                <View>
+                  <Text>{user?.displayName}</Text>
+                  <Text>{user?.phoneNumber}</Text>
+                </View>
+              </View>
 
-              <Button icon={<Map />} onPress={openWazeHandler}>
-                Abrir con Waze
-              </Button>
+              <Button onPress={openWazeHandler}>Abrir con Waze</Button>
 
               {orderRealtime?.detalle.map((product, index) => (
-                <XStack key={index} gap="$3">
+                <View key={index}>
                   <Image
-                    borderRadius="$10"
-                    src={{uri: product.img[0]}}
-                    width={100}
+                    source={{uri: product.img[0]}}
                     height={100}
+                    width={100}
                   />
 
-                  <YStack>
-                    <H4
-                      maxWidth={200}
-                      theme="light"
-                      fontSize="$6"
-                      lineHeight="$1">
-                      {product.nombre}
-                    </H4>
-
-                    <Paragraph theme="light">
-                      Cantidad: {product.cantidad}
-                    </Paragraph>
-
-                    <Paragraph
-                      theme="light"
-                      fontWeight="bold"
-                      fontFamily="$heading">
-                      Q {product.precio}
-                    </Paragraph>
-                  </YStack>
-                </XStack>
+                  <View>
+                    <Text maxWidth={200}>{product.nombre}</Text>
+                    <Text>Cantidad: {product.cantidad}</Text>
+                    <Text fontWeight="bold">Q {product.precio}</Text>
+                  </View>
+                </View>
               ))}
 
               {currentStep === 1 ? (
                 <>
                   <Input
-                    size="$4"
                     textAlign="center"
                     fontWeight="bold"
-                    fontFamily="$heading"
                     keyboardType="number-pad"
+                    maxLength={4}
                     placeholder="Código de acceso"
                   />
                   <Button
-                    icon={<Map />}
-                    backgroundColor="$alienPurple"
-                    onPress={() => navigation.goBack()}>
+                    onPress={() => {
+                      updateOrderHandler(2)();
+                      navigation.goBack();
+                    }}>
                     Finalizar
                   </Button>
                 </>
               ) : (
                 <>
-                  <Button
-                    icon={<Map />}
-                    backgroundColor="$alienPurple"
-                    onPress={updateOrderHandler(0)}>
+                  <Button onPress={updateOrderHandler(0)}>
                     Marcar como recibido
                   </Button>
 
-                  <Button
-                    icon={<Map />}
-                    backgroundColor="$alienPurple"
-                    onPress={updateOrderHandler(1)}>
-                    En camino
-                  </Button>
+                  <Button onPress={updateOrderHandler(1)}>En camino</Button>
                 </>
               )}
-            </YStack>
+            </View>
           </ScrollView>
         </KeyboardAvoidingView>
       </Layout>
-    </Portal>
+    </>
   );
 };
 

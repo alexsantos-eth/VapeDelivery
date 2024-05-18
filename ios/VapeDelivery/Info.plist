@@ -50,6 +50,9 @@
 		<string>Montserrat-Bold.ttf</string>
 		<string>Montserrat-Regular.ttf</string>
 		<string>MonumentExtended.ttf</string>
+		<string>ABCMonumentGrotesk-Bold-Trial.otf</string>
+		<string>ABCMonumentGrotesk-Regular-Trial.otf</string>
+		<string>Ionicons.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

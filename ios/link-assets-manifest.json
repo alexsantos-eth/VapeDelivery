@@ -1,0 +1,29 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/ABCMonumentGrotesk-Bold-Trial.otf",
+      "sha1": "717301366eef40f88d28a27edd6d3db2519fd35a"
+    },
+    {
+      "path": "assets/fonts/ABCMonumentGrotesk-Regular-Trial.otf",
+      "sha1": "f1a830e0462ac4e079c7815978d34c12cf4923b9"
+    },
+    {
+      "path": "assets/fonts/Ionicons.ttf",
+      "sha1": "86e07c3d974eb09099e6e5a9b3b8310303cf0feb"
+    },
+    {
+      "path": "assets/fonts/Montserrat-Bold.ttf",
+      "sha1": "98c66622226025f539568865af96df5175e2979c"
+    },
+    {
+      "path": "assets/fonts/Montserrat-Regular.ttf",
+      "sha1": "bb895d19b8a1fbe1c57fc89cac5da82fdc8fdef4"
+    },
+    {
+      "path": "assets/fonts/MonumentExtended.ttf",
+      "sha1": "9ad5c8bea998c1185d342bf87b55f1dc7a95f6cc"
+    }
+  ]
+}

@@ -1,19 +1,32 @@
 import React from 'react';
 
+import LoginScreen from '@/screens/Login';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
+import {useLogRedirect} from './hooks';
 import Main from './Main';
 
-const MainStack = createNativeStackNavigator();
+export const MainStack = createNativeStackNavigator();
 
 interface RouterProps {}
 const Router: React.FC<RouterProps> = () => {
+  const {loaded, userExists} = useLogRedirect();
+
   return (
     <NavigationContainer>
-      <MainStack.Navigator screenOptions={{headerShown: false}}>
-        <MainStack.Screen name="Main" component={Main} />
-      </MainStack.Navigator>
+      {loaded && (
+        <MainStack.Navigator screenOptions={{headerShown: false}}>
+          {userExists ? (
+            <MainStack.Screen name="Main" component={Main} />
+          ) : (
+            <>
+              <MainStack.Screen name="Login" component={LoginScreen} />
+              <MainStack.Screen name="Main" component={Main} />
+            </>
+          )}
+        </MainStack.Navigator>
+      )}
     </NavigationContainer>
   );
 };

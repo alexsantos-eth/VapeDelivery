@@ -1,44 +1,36 @@
-import {LogIn} from '@tamagui/lucide-icons';
-import React from 'react';
-import {SafeAreaView} from 'react-native';
-import {Button, Image, Input, View, YStack} from 'tamagui';
+import React, {useState} from 'react';
+import Video from 'react-native-video';
+
+import Layout from '@/layout';
+
+import Form from './components/Form';
+import styles from './styles';
 
 interface LoginScreenProps {}
 const LoginScreen: React.FC<LoginScreenProps> = () => {
+  const [videoEnded, setVideoEnded] = useState(false);
+  const [videoLoad, setVideoLoad] = useState(false);
+
+  const onVideoLoad = () => setVideoLoad(true);
+  const onVideoEnd = () => setVideoEnded(true);
+
   return (
-    <View backgroundColor="$alienPurple" flex={1}>
-      <SafeAreaView />
-
-      <View
-        flex={1}
-        marginTop="$-20"
-        alignItems="center"
-        justifyContent="center">
-        <YStack gap="$5">
-          <Image
-            src={require('../../assets/img/login.png')}
-            height={200}
-            width={300}
-          />
-
-          <YStack gap="$3">
-            <Input
-              size="$8"
-              textAlign="center"
-              fontWeight="bold"
-              fontFamily="$heading"
-              keyboardType="number-pad"
-              placeholder="Código de acceso"
-            />
-            <Button backgroundColor="$alienGreen" color="$gray5" icon={LogIn}>
-              Ingresar
-            </Button>
-          </YStack>
-        </YStack>
-      </View>
-
-      <SafeAreaView />
-    </View>
+    <>
+      <Layout hideNavbar boxStyle={styles.background}>
+        {videoLoad && <Form />}
+      </Layout>
+      {!videoEnded && (
+        <Video
+          muted={true}
+          repeat={false}
+          onEnd={onVideoEnd}
+          onLoad={onVideoLoad}
+          resizeMode="cover"
+          style={styles.backgroundVideo}
+          source={require('../../assets/img/splash.mp4')}
+        />
+      )}
+    </>
   );
 };
 

@@ -4,7 +4,7 @@ import {Image, View} from 'react-native';
 import Stack from '@/components/UI/Stack';
 import Text from '@/components/UI/Text';
 
-import style from './styles';
+import styles from './styles';
 
 interface NavbarProps {}
 const Navbar: React.FC<NavbarProps> = () => {
@@ -15,12 +15,12 @@ const Navbar: React.FC<NavbarProps> = () => {
       direction="row"
       alignItems="center"
       justifyContent="flex-start"
-      style={style.container}>
-      <View style={style.imageContainer}>
+      style={styles.container}>
+      <View style={styles.imageContainer}>
         <Image
           source={require('@/assets/img/logo_b.png')}
           resizeMode="contain"
-          style={style.image}
+          style={styles.image}
         />
       </View>
 

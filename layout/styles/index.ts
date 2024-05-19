@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 import {getUnit} from '../../components/UI/utils';
 import {THEME} from '@/providers/theme/utils';
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: getUnit(4),
@@ -11,4 +11,4 @@ const style = StyleSheet.create({
   },
 });
 
-export default style;
+export default styles;

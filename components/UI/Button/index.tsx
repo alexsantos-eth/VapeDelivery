@@ -2,10 +2,11 @@
 import {Button as Btn, ButtonProps} from 'galio-framework';
 import React from 'react';
 
+import {THEME} from '@/providers/theme/utils';
+
 import {StyledLayoutProps} from '../types';
 import {getLayoutStyles} from '../utils';
-import style from './styles';
-import {THEME} from '@/providers/theme/utils';
+import styles from './styles';
 
 interface BtnProps extends ButtonProps, StyledLayoutProps {
   children: React.ReactNode;
@@ -22,7 +23,7 @@ const Button: React.FC<BtnProps> = ({
       {...props}
       textStyle={[
         props.textStyle,
-        style.text,
+        styles.text,
         props.outline && {
           color: THEME?.COLORS?.[props.color?.toUpperCase() || 'THEME'],
         },
@@ -34,7 +35,7 @@ const Button: React.FC<BtnProps> = ({
       }
       style={[
         getLayoutStyles({...props, alignItems, justifyContent}),
-        style.button,
+        styles.button,
         props.style,
         props.outline && {
           borderWidth: 1,

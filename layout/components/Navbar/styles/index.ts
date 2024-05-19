@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     position: 'relative',
     zIndex: 100,
@@ -16,4 +16,4 @@ const style = StyleSheet.create({
   },
 });
 
-export default style;
+export default styles;

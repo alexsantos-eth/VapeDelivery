@@ -4,7 +4,7 @@ import React from 'react';
 import {SafeAreaView, SafeAreaViewProps} from 'react-native-safe-area-context';
 
 import Navbar from './components/Navbar';
-import style from './styles';
+import styles from './styles';
 import {THEME} from '@/providers/theme/utils';
 
 interface LayoutProps {
@@ -32,7 +32,7 @@ const Layout: React.FC<LayoutProps> = ({
 
       <SafeAreaView
         edges={['left', 'right']}
-        style={[style.container, boxStyle]}>
+        style={[styles.container, boxStyle]}>
         <Block flex={1} fluid>
           {children}
         </Block>

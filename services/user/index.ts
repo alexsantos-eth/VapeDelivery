@@ -4,6 +4,7 @@ import {User} from '../../models/User';
 
 interface GetUserProps {
   uid: string;
+  isDriver?: boolean;
 }
 /**
  * The function `getUser` retrieves user data from a Firestore collection based on the provided user
@@ -16,9 +17,12 @@ interface GetUserProps {
  * Firestore database as a `User` object. If there is an error during the process, it will be caught
  * and logged to the console.
  */
-export const getUser = async ({uid}: GetUserProps) => {
+export const getUser = async ({uid, isDriver}: GetUserProps) => {
   try {
-    const user = await firestore().collection('drivers').doc(uid).get();
+    const user = await firestore()
+      .collection(isDriver ? 'drivers' : 'users')
+      .doc(uid)
+      .get();
     return user.data() as User;
   } catch (error) {
     console.log('Error getting user', error);

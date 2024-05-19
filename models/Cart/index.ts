@@ -2,6 +2,7 @@ export interface RealtimeCartData {
   id: string;
   activo: boolean;
   uid?: string;
+  codigoVerificacion: string;
   direccion_entrega: {nombre: string; latitud: number; longitud: number};
   ubicacion_motorista: {latitud: number; longitud: number};
   detalle: {

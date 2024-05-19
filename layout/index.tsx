@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import {Block} from 'galio-framework';
 import React from 'react';
 import {SafeAreaView, SafeAreaViewProps} from 'react-native-safe-area-context';
@@ -22,7 +23,10 @@ const Layout: React.FC<LayoutProps> = ({
     <>
       <SafeAreaView
         edges={['top']}
-        style={{backgroundColor: statusCarColor ?? THEME.COLORS?.PRIMARY}}>
+        style={{
+          zIndex: 2,
+          backgroundColor: statusCarColor ?? THEME.COLORS?.PRIMARY,
+        }}>
         {!hideNavbar && <Navbar />}
       </SafeAreaView>
 

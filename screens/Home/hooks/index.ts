@@ -51,6 +51,7 @@ export const useActiveOrder = () => {
   useEffect(() => {
     const requestOrder = async () => {
       const orderUid = await getAcceptedOrder();
+
       if (!orderUid) {
         return;
       }

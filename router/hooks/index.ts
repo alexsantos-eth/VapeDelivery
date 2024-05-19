@@ -1,6 +1,8 @@
 import {useEffect, useState} from 'react';
+import EncryptedStorage from 'react-native-encrypted-storage';
 
 import {getUID} from '@/services/auth';
+import {DEV} from '@/utils';
 
 export const useLogRedirect = () => {
   const [loaded, setLoaded] = useState(false);
@@ -16,7 +18,12 @@ export const useLogRedirect = () => {
       setLoaded(true);
     };
 
-    requestUID();
+    if (DEV) {
+      EncryptedStorage.clear();
+      setLoaded(true);
+    } else {
+      requestUID();
+    }
   }, []);
 
   return {loaded, userExists};

@@ -44,9 +44,8 @@ const Form: React.FC<FormProps> = () => {
           />
 
           <Button
-            color="black"
+            color="theme"
             icon="log-in"
-            iconColor="#fff"
             iconFamily="ionicon"
             onPress={signingEvent}
             loading={loginLoading}>

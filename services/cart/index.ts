@@ -1,10 +1,12 @@
 import EncryptedStorage from 'react-native-encrypted-storage';
 
 import {User} from '@/models/User';
+import {updateOrderStatus} from '@/screens/Order/events';
 import database from '@react-native-firebase/database';
 import firestore from '@react-native-firebase/firestore';
 
 import {Cart, RealtimeCartData} from '../../models/Cart';
+import {deleteCurrentOrderNotification} from '../notifications';
 
 interface GetCartId {
   uid: string;
@@ -76,7 +78,7 @@ export const acceptOrder = async ({order, driver}: SaveAcceptedOrderProps) => {
   }
 
   // SAVE ON STORAGE
-  await EncryptedStorage.setItem('order-id', order.uid);
+  await EncryptedStorage.setItem('order-uid', order.uid);
 
   await ref.update({
     activo: true,
@@ -93,9 +95,34 @@ export const acceptOrder = async ({order, driver}: SaveAcceptedOrderProps) => {
 
 export const getAcceptedOrder = async () => {
   try {
-    const orderId = await EncryptedStorage.getItem('order-id');
+    const orderId = await EncryptedStorage.getItem('order-uid');
     return orderId;
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const deleteAcceptedOrder = async () => {
+  try {
+    await EncryptedStorage.removeItem('order-uid');
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+interface DeliverOrderProps {
+  order: Cart | null;
+}
+export const deliverOrder = async ({order}: DeliverOrderProps) => {
+  try {
+    if (!order?.uid) {
+      return;
+    }
+
+    await updateOrderStatus({status: 3, uid: order?.uid});
+    await deleteAcceptedOrder();
+    return deleteCurrentOrderNotification({uid: order?.uid});
+  } catch (err) {
+    console.log(err);
   }
 };

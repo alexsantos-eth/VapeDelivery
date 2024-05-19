@@ -1,11 +1,12 @@
 import {useEffect, useState} from 'react';
 
-import {useRoute} from '@react-navigation/native';
+import {CommonActions, useNavigation, useRoute} from '@react-navigation/native';
 
 import {Cart, RealtimeCartData} from '../../../models/Cart';
 import {User} from '../../../models/User';
-import {getCart, getRealtimeCart} from '../../../services/cart';
+import {deliverOrder, getCart, getRealtimeCart} from '../../../services/cart';
 import {getUser} from '../../../services/user';
+import {toast} from '@backpackapp-io/react-native-toast';
 
 /**
  * The `useOrderFromParams` function retrieves order data based on a provided UID parameter.
@@ -22,6 +23,7 @@ export const useOrderFromParams = () => {
     null,
   );
   const [order, setOrder] = useState<Cart | null>(null);
+  const [currentStep, setCurrentStep] = useState(0);
 
   useEffect(() => {
     const pipeLine = async () => {
@@ -52,10 +54,20 @@ export const useOrderFromParams = () => {
       }
 
       setOrder(data.cart);
+
+      // FIND LAST STATE WHERE TERMINADO = TRUE
+      let lastStateIndex = 0;
+      data.realtime.estado.forEach((state, index) => {
+        if (state.terminado) {
+          lastStateIndex = index;
+        }
+      });
+
+      setCurrentStep(lastStateIndex);
     });
   }, [uid]);
 
-  return {uid, order, orderRealtime};
+  return {uid, order, orderRealtime, currentStep, setCurrentStep};
 };
 
 /**
@@ -82,4 +94,40 @@ export const useUserCart = () => {
   }, [uid]);
 
   return {user, setUser};
+};
+
+interface UseDeliverOrderProps {
+  order: Cart | null;
+  orderCode?: string;
+  verificationCode: string;
+}
+export const useDeliverOrder = ({
+  order,
+  orderCode,
+  verificationCode,
+}: UseDeliverOrderProps) => {
+  const [loading, setLoading] = useState<boolean>(false);
+  const navigation = useNavigation();
+
+  const handler = async () => {
+    setLoading(true);
+
+    if (orderCode !== verificationCode) {
+      toast.error('Código de verificación incorrecto');
+      setLoading(false);
+      return;
+    }
+
+    await deliverOrder({order});
+
+    setLoading(false);
+    toast.success('Pedido entregado con éxito');
+    navigation.dispatch(
+      CommonActions.navigate({
+        name: 'Home',
+      }),
+    );
+  };
+
+  return {handler, loading};
 };

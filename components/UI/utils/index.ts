@@ -34,7 +34,7 @@ export const getLayoutStyles = (props: StyledLayoutProps) => {
     direction = 'column',
     alignItems = 'flex-start',
     justifyContent = 'flex-start',
-    borderRadius = getUnit(2),
+    borderRadius = 2,
     background,
   } = props;
 
@@ -49,7 +49,7 @@ export const getLayoutStyles = (props: StyledLayoutProps) => {
     paddingLeft: getUnit(p || px || pl),
     paddingRight: getUnit(p || px || pr),
 
-    borderRadius,
+    borderRadius: getUnit(borderRadius),
 
     width: w ? w : fullWidth ? '100%' : 'auto',
     flex: props.flex,

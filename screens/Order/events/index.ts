@@ -44,14 +44,19 @@ interface UpdateOrderStatusProps {
  * status in the Firebase Realtime Database under the `/cart//estado` path with the provided
  * `status` value. It will set the `terminado` field
  */
-export const updateOrderStatus = ({status, uid}: UpdateOrderStatusProps) => {
+export const updateOrderStatus = async ({
+  status,
+  uid,
+}: UpdateOrderStatusProps) => {
   if (!uid) {
     return;
   }
 
-  const ref = database().ref(`/cart/${uid}/estado`).child(status.toString());
+  const ref = database()
+    .ref(`/cart/${uid}/estado`)
+    .child((status - 1).toString());
 
-  ref.update({
+  return ref.update({
     terminado: true,
     hora: new Date().getHours() + ':' + new Date().getMinutes(),
   });

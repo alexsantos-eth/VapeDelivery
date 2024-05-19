@@ -7,7 +7,7 @@ interface KeyboardAvoidingProps {
 }
 const KeyboardAvoiding: React.FC<KeyboardAvoidingProps> = ({children}) => {
   return (
-    <KeyboardAvoidingView behavior="padding" style={styles.container}>
+    <KeyboardAvoidingView behavior="position" style={styles.container}>
       {children}
     </KeyboardAvoidingView>
   );

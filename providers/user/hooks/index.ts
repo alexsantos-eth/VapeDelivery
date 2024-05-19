@@ -20,7 +20,7 @@ export const useAuthChanged = () => {
         return;
       }
 
-      const userOnDb = await getUser({uid: usr.uid});
+      const userOnDb = await getUser({uid: usr.uid, isDriver: true});
 
       if (!userOnDb) {
         setUser(null);

@@ -14,7 +14,8 @@ const Navbar: React.FC<NavbarProps> = () => {
       px={4}
       direction="row"
       alignItems="center"
-      justifyContent="flex-start">
+      justifyContent="flex-start"
+      style={style.container}>
       <View style={style.imageContainer}>
         <Image
           source={require('@/assets/img/logo_b.png')}

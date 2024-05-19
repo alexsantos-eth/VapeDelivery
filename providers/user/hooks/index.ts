@@ -1,9 +1,11 @@
 import {useContext, useEffect, useState} from 'react';
 
-import {UserContext} from '../context';
 import {User} from '@/models/User';
-import auth from '@react-native-firebase/auth';
 import {getUser} from '@/services/user';
+import auth from '@react-native-firebase/auth';
+import {CommonActions, useNavigation} from '@react-navigation/native';
+
+import {UserContext} from '../context';
 
 export const useUser = () => {
   const userCtx = useContext(UserContext);
@@ -12,11 +14,17 @@ export const useUser = () => {
 
 export const useAuthChanged = () => {
   const [user, setUser] = useState<User | null>(null);
+  const navigation = useNavigation();
 
   useEffect(() => {
     const unsubscribe = auth().onAuthStateChanged(async usr => {
       if (!usr) {
         setUser(null);
+        navigation.dispatch(
+          CommonActions.navigate({
+            name: 'Login',
+          }),
+        );
         return;
       }
 
@@ -31,7 +39,7 @@ export const useAuthChanged = () => {
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [navigation]);
 
   return [user, setUser] as const;
 };

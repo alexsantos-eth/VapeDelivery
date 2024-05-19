@@ -1,11 +1,11 @@
+import {Icon} from 'galio-framework';
 import React from 'react';
 
+import {THEME} from '@/providers/theme/utils';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import HomeScreen from '../../screens/Home';
+import AccountNavigator from './Account';
 import HomeNavigator from './Home';
-import {Icon} from 'galio-framework';
-import {THEME} from '@/providers/theme/utils';
 
 interface MainProps {}
 
@@ -52,8 +52,8 @@ const Main: React.FC<MainProps> = () => {
       />
 
       <Tab.Screen
-        name="ProfileStack"
-        component={HomeScreen}
+        name="AccountStack"
+        component={AccountNavigator}
         options={{
           headerShown: false,
           tabBarShowLabel: false,

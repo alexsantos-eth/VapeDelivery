@@ -28,3 +28,19 @@ export const getUser = async ({uid, isDriver}: GetUserProps) => {
     console.log('Error getting user', error);
   }
 };
+
+interface UpdateUserProps {
+  user: Partial<User>;
+  uid?: string;
+  isDriver?: boolean;
+}
+export const updateUser = async ({user, uid, isDriver}: UpdateUserProps) => {
+  try {
+    await firestore()
+      .collection(isDriver ? 'drivers' : 'users')
+      .doc(uid)
+      .update(user);
+  } catch (error) {
+    console.log('Error getting user', error);
+  }
+};

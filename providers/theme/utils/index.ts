@@ -5,11 +5,11 @@ export const THEME: GalioProviderProps['theme'] = {
   ...theme,
   COLORS: {
     ...theme.COLORS,
-    BLACK: '#666',
+    BLACK: 'rgba(0, 0, 0, 0.6)',
     DARK: '#333',
     PRIMARY: '#B172FF',
-    WHITE: '#F5F5F5',
-    LIGHT: '#EFEFEF',
+    WHITE: '#FFFFFF',
+    LIGHT: '#fafafa',
     THEME: '#013138',
   },
   SIZES: {

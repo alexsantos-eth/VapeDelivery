@@ -7,7 +7,7 @@ import styles from './styles';
 
 interface InpProps extends InputProps {}
 const Input: React.FC<InpProps> = ({...props}) => {
-  const themeColor = THEME.COLORS?.[props.color?.toUpperCase() ?? 'PRIMARY'];
+  const themeColor = THEME.COLORS?.[props.color?.toUpperCase() ?? 'THEME'];
 
   return (
     <Inp
@@ -23,7 +23,7 @@ const Input: React.FC<InpProps> = ({...props}) => {
         },
         props.style,
       ]}
-      placeholderTextColor={themeColor}
+      placeholderTextColor={THEME.COLORS?.MUTED}
     />
   );
 };

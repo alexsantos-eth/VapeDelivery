@@ -11,7 +11,7 @@ const LoginScreen: React.FC<LoginScreenProps> = () => {
   const [videoEnded, setVideoEnded] = useState(false);
   const [videoLoad, setVideoLoad] = useState(false);
 
-  const onVideoLoad = () => setVideoLoad(true);
+  const onVideoLoad = () => setTimeout(() => setVideoLoad(true), 1000);
   const onVideoEnd = () => setVideoEnded(true);
 
   return (

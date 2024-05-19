@@ -1,7 +1,6 @@
 import React from 'react';
 
 import LoginScreen from '@/screens/Login';
-import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {useLogRedirect} from './hooks';
@@ -14,7 +13,7 @@ const Router: React.FC<RouterProps> = () => {
   const {loaded, userExists} = useLogRedirect();
 
   return (
-    <NavigationContainer>
+    <>
       {loaded && (
         <MainStack.Navigator screenOptions={{headerShown: false}}>
           {userExists ? (
@@ -27,7 +26,7 @@ const Router: React.FC<RouterProps> = () => {
           )}
         </MainStack.Navigator>
       )}
-    </NavigationContainer>
+    </>
   );
 };
 

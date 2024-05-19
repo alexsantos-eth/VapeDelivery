@@ -14,6 +14,10 @@ const styles = StyleSheet.create({
     borderRadius: getUnit(2),
   },
 
+  scrollContainer: {
+    height: '100%',
+  },
+
   row: {
     borderBottomWidth: 1,
     borderBottomColor: THEME?.COLORS?.MUTED,

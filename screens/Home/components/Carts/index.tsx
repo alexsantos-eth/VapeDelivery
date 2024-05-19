@@ -16,7 +16,7 @@ const Carts: React.FC<CartsProps> = ({carts}) => {
   return (
     <Stack flex={1}>
       {carts.map(cart => (
-        <Stack key={cart.id} background="white" p={3} outline>
+        <Stack key={cart.id} background="white" p={3} shadow>
           <Stack gap={1} fullWidth>
             <Stack gap={0}>
               <Text bold>{cart.direccion_entrega.nombre}</Text>

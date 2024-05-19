@@ -3,6 +3,7 @@ import {Linking} from 'react-native';
 import database from '@react-native-firebase/database';
 
 import {RealtimeCartData} from '../../../models/Cart';
+import {zeroPad} from '@/tools';
 
 interface OpenWazeProps {
   order: RealtimeCartData | null;
@@ -55,10 +56,11 @@ export const updateOrderStatus = async ({
   const ref = database()
     .ref(`/cart/${uid}/estado`)
     .child((status - 1).toString());
+  const now = new Date();
 
   return ref.update({
     terminado: true,
-    hora: new Date().getHours() + ':' + new Date().getMinutes(),
+    hora: zeroPad(now.getHours(), 2) + ':' + zeroPad(now.getMinutes(), 2),
   });
 };
 

@@ -60,6 +60,17 @@ const OrderScreen: React.FC<OrderScreenProps> = () => {
                   {user?.displayName}
                 </Text>
               </Stack>
+
+              <Text size={2}>{`Nota: ${orderRealtime?.notaMotorista}`}</Text>
+            </Stack>
+
+            <Stack direction="row" alignItems="center" my={2}>
+              <Text size={2.5}>Total a cancelar:</Text>
+              <Text bold size={2.5}>
+                {order?.payMethod === 'efectivo'
+                  ? `Q${orderRealtime?.total}`
+                  : 'Pagado'}
+              </Text>
             </Stack>
 
             <Stack fullWidth gap={2}>
